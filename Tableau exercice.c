@@ -286,7 +286,7 @@ void challenge13(){
 }
 
 void challenge14(){
-    int *array, n, sum;
+    int *array, n, sum=0;
     float avg;
     printf("Combien des elements voulez-vous entrez dans le tableau?\n  ");
     scanf("%i",&n);
