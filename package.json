@@ -1,0 +1,24 @@
+{
+    "name": "brief_2_v2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "tw": "npx @tailwindcss/cli -i assets/css/custom.css -o assets/css/tw.css --watch",
+        "bs": "browser-sync start --config assets/conf/bs-config.js",
+        "bstw": "concurrently \"npm run tw\" \"npm run bs\""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "devDependencies": {
+        "concurrently": "^9.2.1"
+    },
+    "dependencies": {
+        "@tailwindcss/cli": "^4.1.18",
+        "chart.js": "^4.5.1",
+        "jquery": "^3.7.1",
+        "tailwindcss": "^4.1.18"
+    }
+}

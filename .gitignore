@@ -1,0 +1,5 @@
+.env
+temp.wsd
+vendor
+node_modules
+test.php
