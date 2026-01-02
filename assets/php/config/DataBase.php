@@ -6,8 +6,8 @@ use Dotenv\Dotenv;
 
 class DataBase
 {
-    private static ?self $theOnlyDB = null;
-    private PDO $pdo;
+    private static ?self $dbInstance = null;
+    private ?PDO $pdo;
     private static string $dbName = "";
 
     private function __construct()
@@ -50,13 +50,18 @@ class DataBase
         }
     }
 
-    public static function getTheOnlyDB(): self
+    public static function openDB(): self
     {
-        if (is_null(self::$theOnlyDB)) self::$theOnlyDB = new self();
-        return self::$theOnlyDB;
+        if (is_null(self::$dbInstance)) self::$dbInstance = new self();
+        return self::$dbInstance;
     }
 
-    public function getPdo(): PDO
+    public function closeDB(): void
+    {
+        $this->pdo = null;
+    }
+
+    public function getPdo(): ?PDO
     {
         return $this->pdo;
     }

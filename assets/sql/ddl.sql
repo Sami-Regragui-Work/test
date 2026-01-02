@@ -1,4 +1,4 @@
--- Active: 1766926269402@@127.0.0.1@3306@UCCV3
+-- Active: 1767306847200@@127.0.0.1@3306@UCCV3
 DROP DATABASE IF EXISTS UCCV3;
 
 CREATE DATABASE UCCV3;
@@ -62,6 +62,7 @@ CREATE TABLE `medications` (
     `id` int PRIMARY KEY AUTO_INCREMENT,
     `name` varchar(100) NOT NULL,
     `instructions` text,
+    `prescription_id` int NOT NULL,
     `created_at` timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -70,8 +71,10 @@ ADD FOREIGN KEY (`user_id`)
 REFERENCES `users` (`id`);
 
 ALTER TABLE `doctors`
-ADD FOREIGN KEY (`department_id`)
-REFERENCES `departments` (`id`);
+ADD CONSTRAINT doctors_departements 
+FOREIGN KEY (`department_id`)
+REFERENCES `departments` (`id`)
+ON DELETE SET NULL;
 
 ALTER TABLE `patients`
 ADD FOREIGN KEY (`user_id`)
@@ -96,3 +99,9 @@ REFERENCES `patients` (`user_id`);
 ALTER TABLE `prescriptions`
 ADD FOREIGN KEY (`medication_id`)
 REFERENCES `medications` (`id`);
+
+ALTER TABLE `medications`
+ADD FOREIGN KEY (`prescription_id`)
+REFERENCES `prescriptions` (`id`);
+
+
