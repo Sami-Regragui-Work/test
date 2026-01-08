@@ -5,7 +5,7 @@ abstract class BaseRepository
     private readonly string $tableName;
     private readonly array $headers;
     private readonly string $idColName;
-    private object $obj;
+    protected object $obj;
     protected array $headerToProp = [];
     protected array $propToHeader = [];
 
@@ -42,18 +42,13 @@ abstract class BaseRepository
     {
         return $this->idColName;
     }
-    private function getHeaderToProp(): array
+    protected function getHeaderToProp(): array
     {
         return $this->headerToProp;
     }
-    private function getPropToHeader(): array
+    protected function getPropToHeader(): array
     {
         return $this->propToHeader;
-    }
-
-    public function setObj(object $obj): void
-    {
-        $this->obj = $obj;
     }
 
     private function fetchHeaders(): array
@@ -62,7 +57,7 @@ abstract class BaseRepository
         $tableName = $this->getTableName();
         $sql = <<<SQL
         SELECT COLUMN_NAME
-        FROM INFORMATION_SCHEMA.COLUMN
+        FROM INFORMATION_SCHEMA.COLUMNS
         WHERE TABLE_SCHEMA = :db
         AND TABLE_NAME = :tableName
         ORDER BY ORDINAL_POSITION
@@ -85,16 +80,16 @@ abstract class BaseRepository
         }
     }
 
-    protected function objToArray(object $obj): array
+    protected function objToArray(): array
     {
-        $reflection = new ReflectionClass($obj);
+        $reflection = new ReflectionClass($this->obj);
         $assocArr = [];
 
         foreach ($reflection->getProperties() as $prop) {
             $propName = $prop->getName();
             if ($propName === 'id') continue;
             $header = array_merge([$propName => $propName], $this->getPropToHeader())[$propName];
-            $value = $prop->getValue($obj);
+            $value = $prop->getValue($this->obj);
             $propType = $prop->getType();
             $typeName = $propType ? $prop->getType()->getName() : 'string';
 
@@ -114,10 +109,10 @@ abstract class BaseRepository
         return $assocArr;
     }
 
-    protected function arrayToObj(array $row): object
+    protected function arrayToObj(array $row, ?object $oldObj = null): object
     {
         $reflection = new ReflectionClass($this->obj);
-        $obj = clone $this->obj;
+        if ($oldObj) $this->obj = $oldObj;
 
         foreach ($row as $h => $v) {
             $propName = array_merge([$h => $h], $this->getHeaderToProp())[$h];
@@ -136,9 +131,9 @@ abstract class BaseRepository
                 $value = $v ? (int)$v : null;
             }
 
-            $prop->setValue($obj, $value);
+            $prop->setValue($this->obj, $value);
         }
-        return $obj;
+        return clone $this->obj;
     }
 
     public function delete(): bool
@@ -175,7 +170,7 @@ abstract class BaseRepository
     public function create(): bool
     {
         $tableName = $this->getTableName();
-        $assocRow = $this->objToArray($this->obj);
+        $assocRow = $this->objToArray();
 
         $columns = implode(', ', array_keys($assocRow));
         $phsArr = array_fill(0, count($assocRow), '?');
@@ -216,7 +211,7 @@ abstract class BaseRepository
     public function update(): bool
     {
         $tableName = $this->getTableName();
-        $assocRow = $this->objToArray($this->obj);
+        $assocRow = $this->objToArray();
         $idColName = $this->getIdColName();
         $id = $this->obj->getId();
 

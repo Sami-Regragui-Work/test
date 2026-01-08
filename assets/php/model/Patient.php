@@ -1,5 +1,9 @@
 <?php
 
+require __DIR__ . "/User.php";
+
+// throw new Exception(__DIR__ . "/User.php");
+
 enum Gender: string
 {
     case M = 'M';

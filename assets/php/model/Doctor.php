@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . "/User.php";
+
 class Doctor extends User
 {
     private string $spec;

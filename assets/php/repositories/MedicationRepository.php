@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . "/BaseRepository.php";
+
 class MedicationRepository extends BaseRepository
 {
     protected function whichTable(): string

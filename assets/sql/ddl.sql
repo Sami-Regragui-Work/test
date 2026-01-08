@@ -68,7 +68,8 @@ CREATE TABLE `medications` (
 
 ALTER TABLE `doctors`
 ADD FOREIGN KEY (`user_id`)
-REFERENCES `users` (`id`);
+REFERENCES `users` (`id`)
+ON DELETE CASCADE;
 
 ALTER TABLE `doctors`
 ADD CONSTRAINT doctors_departements 
@@ -78,7 +79,8 @@ ON DELETE SET NULL;
 
 ALTER TABLE `patients`
 ADD FOREIGN KEY (`user_id`)
-REFERENCES `users` (`id`);
+REFERENCES `users` (`id`)
+ON DELETE CASCADE;
 
 ALTER TABLE `appointments`
 ADD FOREIGN KEY (`doctor_id`)
@@ -103,5 +105,4 @@ REFERENCES `medications` (`id`);
 ALTER TABLE `medications`
 ADD FOREIGN KEY (`prescription_id`)
 REFERENCES `prescriptions` (`id`);
-
 

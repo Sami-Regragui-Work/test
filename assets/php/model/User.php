@@ -1,4 +1,4 @@
-<?
+<?php
 enum Role: string
 {
     case ADMIN = "admin";
@@ -31,7 +31,7 @@ abstract class User
         $this->id = $id;
         $this->user = $user;
         $this->email = $email;
-        $this->pass = $pass;
+        $this->pass = password_hash($pass, PASSWORD_DEFAULT);
         $this->fName = $fName;
         $this->lName = $lName;
         $this->phone = $phone;
@@ -89,7 +89,7 @@ abstract class User
     }
     public function setPass(string $pass): void
     {
-        $this->pass = $pass;
+        $this->pass = password_hash($pass, PASSWORD_DEFAULT);
     }
     public function setFName(string $fName): void
     {
