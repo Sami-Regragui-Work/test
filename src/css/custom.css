@@ -1,0 +1,63 @@
+@config "../../assets/conf/tailwind.config.js";
+@import "tailwindcss";
+
+.body__aside {
+    @apply transition-all duration-300;
+}
+
+/* desktop: left sidebar */
+@media (min-width: 640px) {
+    .body__aside {
+        @apply w-[60px] overflow-hidden hover:w-[256px];
+    }
+
+    .body__main {
+        @apply ml-[60px] w-[calc(100%-60px)];
+    }
+
+    .body__aside:hover ~ .body__main {
+        @apply ml-[256px] w-[calc(100%-256px)];
+    }
+    .stick-bottom {
+        @apply absolute bottom-0 flex flex-col gap-2;
+    }
+    .body__aside nav ul {
+        @apply w-full flex-col;
+    }
+}
+
+/* mobile: top bar */
+@media (max-width: 639.98px) {
+    .body__aside {
+        @apply w-full h-[60px] overflow-x-auto flex;
+    }
+
+    .body__main {
+        @apply ml-0 mt-[60px] w-full;
+    }
+
+    .body__aside nav ul {
+        @apply w-full flex-row;
+    }
+    .stick-bottom {
+        @apply static flex flex-row justify-end gap-2;
+    }
+}
+
+button {
+    @apply cursor-pointer;
+}
+
+.main__main::scroll-marker,
+.main__main::-webkit-scrollbar {
+    @apply hidden;
+}
+
+.modal--scroll::scroll-marker,
+.modal--scroll::-webkit-scrollbar {
+    @apply hidden;
+}
+
+.body--no-scroll {
+    @apply overflow-hidden;
+}

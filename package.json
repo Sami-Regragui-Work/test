@@ -1,10 +1,10 @@
 {
-    "name": "brief_2_v2",
+    "name": "uccv3",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
-        "tw": "npx @tailwindcss/cli -i assets/css/custom.css -o assets/css/tw.css --watch",
+        "tw": "npx @tailwindcss/cli -i src/css/custom.css -o src/css/tw.css --watch",
         "bs": "browser-sync start --config assets/conf/bs-config.js",
         "bstw": "concurrently \"npm run tw\" \"npm run bs\""
     },
@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@tailwindcss/cli": "^4.1.18",
+        "browser-sync": "^3.0.4",
         "chart.js": "^4.5.1",
         "jquery": "^3.7.1",
         "tailwindcss": "^4.1.18"
