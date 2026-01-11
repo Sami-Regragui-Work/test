@@ -1,6 +1,6 @@
 <?php
-$root = getenv("ROOT");
-require $root . "vendor/autoload.php";
+// $root = getenv("ROOT");
+require __DIR__ . "/../../../vendor/autoload.php";
 
 use Dotenv\Dotenv;
 
@@ -15,8 +15,8 @@ class DataBase
         /* private to prevent instanciation, 
         not abstract because we still need to instanciate it from a getter with some conditions
         */
-        global $root;
-        $dotenv = Dotenv::createImmutable($root);
+        // global $root;
+        $dotenv = Dotenv::createImmutable(__DIR__ . "/../../../");
         $dotenv->load();
 
         // DB_HOST

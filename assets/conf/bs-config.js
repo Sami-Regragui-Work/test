@@ -1,5 +1,5 @@
 module.exports = {
-    proxy: "Brief_2_v2.test",
+    proxy: "uccv3.local",
     files: ["**/*.php", "**/*.js", "**/*.css", "./**/*.html"],
     watch: true,
 };

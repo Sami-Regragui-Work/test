@@ -1,6 +1,6 @@
 module.exports = {
     darkMode: "class",
-    content: ["./index.php", "./assets/php/**/*.php", "./assets/js/**/*.js"],
+    content: ["./index.php", "./src/php/**/*.php", "./src/js/**/*.js"],
     theme: {
         extend: {},
     },
