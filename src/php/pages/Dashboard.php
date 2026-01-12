@@ -37,23 +37,18 @@ class Dashboard
         $total = array_sum($stats);
 
         $colors = [
-            'users' => '#3b82f6',
-            'doctors' => '#22c55e',
-            'patients' => '#eab308',
-            'departments' => '#ec4899',
-            'appointments' => '#f97316',
-            'prescriptions' => '#8b5cf6',
-            'medications' => '#6b7280'
+            'users' => 'dark:text-[#3b82f6]',
+            'doctors' => 'dark:text-[#22c55e]',
+            'patients' => 'dark:text-[#eab308]',
+            'departments' => 'dark:text-[#ec4899]',
+            'appointments' => 'dark:text-[#f97316]',
+            'prescriptions' => 'dark:text-[#8b5cf6]',
+            'medications' => 'dark:text-[#6b7280]'
         ];
 
         ob_start();
 ?>
-        <section id="dashboard" class="p-4 space-y-6">
-            <!-- Chart data spans -->
-            <?php foreach ($tables as $table): ?>
-                <span class="hidden data-chart-<?= $table ?>"><?= $stats[$table] ?></span>
-            <?php endforeach; ?>
-
+        <section id="dashboard" class="p-4 space-y-6" data-stats='<?= json_encode($stats) ?>'>
             <header>
                 <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Dashboard</h1>
                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
@@ -63,11 +58,11 @@ class Dashboard
 
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 [&>div]:overflow-hidden">
                 <?php foreach ($tables as $table):
-                    $color = $colors[$table] ?? '#6b7280';
+                    $color = $colors[$table] ?? 'dark:text-[#6b7280]';
                 ?>
                     <div class="p-4 bg-white rounded-lg shadow dark:bg-gray-800">
                         <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400 capitalize"><?= ucfirst($table) ?></h2>
-                        <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-[<?= $color ?>]"><?= $stats[$table] ?></p>
+                        <p class="mt-2 text-2xl font-semibold text-gray-900 <?= $color ?>"><?= $stats[$table] ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>

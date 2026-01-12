@@ -5,10 +5,24 @@ let chartInstance = null;
 
 function dashboardStart() {
     const dashboard = $("#dashboard");
-    if (!dashboard.length) return;
+    if (!dashboard.length) {
+        console.log("Dashboard not found");
+        return;
+    }
 
     const chartCanvas = $("#chart")[0];
-    if (!chartCanvas) return;
+    if (!chartCanvas) {
+        console.log("Chart canvas not found");
+        return;
+    }
+
+    const statsJson = dashboard.attr("data-stats");
+    if (!statsJson) {
+        console.error("No stats data found");
+        return;
+    }
+
+    const stats = JSON.parse(statsJson);
 
     const tables = [
         "users",
@@ -19,9 +33,10 @@ function dashboardStart() {
         "prescriptions",
         "medications",
     ];
+
     const data = tables.map((table) => {
-        const span = $(`[data-chart-${table}]`);
-        return span.length ? Number(span.text()) : 0;
+        const value = stats[table] || 0;
+        return value;
     });
 
     const colors = [
@@ -48,6 +63,7 @@ function dashboardStart() {
 
     const opt = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 position: "bottom",

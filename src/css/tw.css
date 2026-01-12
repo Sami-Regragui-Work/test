@@ -244,6 +244,24 @@
   .col-span-6 {
     grid-column: span 6 / span 6;
   }
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
+  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -322,8 +340,17 @@
   .flex-1 {
     flex: 1;
   }
+  .flex-shrink {
+    flex-shrink: 1;
+  }
   .shrink-0 {
     flex-shrink: 0;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .resize {
+    resize: both;
   }
   .grid-cols-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -482,6 +509,9 @@
   .bg-\[\#030712\] {
     background-color: #030712;
   }
+  .bg-black {
+    background-color: var(--color-black);
+  }
   .bg-black\/50 {
     background-color: color-mix(in srgb, #000 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -508,6 +538,9 @@
   }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .p-1 {
+    padding: calc(var(--spacing) * 1);
   }
   .p-1\.5 {
     padding: calc(var(--spacing) * 1.5);
@@ -608,6 +641,27 @@
   .whitespace-nowrap {
     white-space: nowrap;
   }
+  .text-\[\#3b82f6\] {
+    color: #3b82f6;
+  }
+  .text-\[\#6b7280\] {
+    color: #6b7280;
+  }
+  .text-\[\#8b5cf6\] {
+    color: #8b5cf6;
+  }
+  .text-\[\#22c55e\] {
+    color: #22c55e;
+  }
+  .text-\[\#eab308\] {
+    color: #eab308;
+  }
+  .text-\[\#ec4899\] {
+    color: #ec4899;
+  }
+  .text-\[\#f97316\] {
+    color: #f97316;
+  }
   .text-blue-700 {
     color: var(--color-blue-700);
   }
@@ -647,6 +701,9 @@
   .uppercase {
     text-transform: uppercase;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -654,6 +711,10 @@
   .shadow-sm {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
@@ -935,6 +996,41 @@
   .dark\:bg-indigo-950 {
     &:is(.dark *) {
       background-color: var(--color-indigo-950);
+    }
+  }
+  .dark\:text-\[\#3b82f6\] {
+    &:is(.dark *) {
+      color: #3b82f6;
+    }
+  }
+  .dark\:text-\[\#6b7280\] {
+    &:is(.dark *) {
+      color: #6b7280;
+    }
+  }
+  .dark\:text-\[\#8b5cf6\] {
+    &:is(.dark *) {
+      color: #8b5cf6;
+    }
+  }
+  .dark\:text-\[\#22c55e\] {
+    &:is(.dark *) {
+      color: #22c55e;
+    }
+  }
+  .dark\:text-\[\#eab308\] {
+    &:is(.dark *) {
+      color: #eab308;
+    }
+  }
+  .dark\:text-\[\#ec4899\] {
+    &:is(.dark *) {
+      color: #ec4899;
+    }
+  }
+  .dark\:text-\[\#f97316\] {
+    &:is(.dark *) {
+      color: #f97316;
     }
   }
   .dark\:text-blue-300 {
@@ -1256,6 +1352,11 @@ button {
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -1298,6 +1399,7 @@ button {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-translate-x: 0;
       --tw-translate-y: 0;
