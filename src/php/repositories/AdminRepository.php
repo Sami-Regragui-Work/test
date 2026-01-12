@@ -4,12 +4,12 @@ require __DIR__ . "/UserRepository.php";
 
 class AdminRepository extends UserRepository
 {
-    protected function whichTable(): string
+    public function whichTable(): string
     {
         return 'users';
     }
 
-    protected function mapToProp(): array
+    public function mapToProp(): array
     {
         return [
             'username' => 'user',

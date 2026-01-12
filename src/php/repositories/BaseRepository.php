@@ -19,9 +19,9 @@ abstract class BaseRepository
         $this->propToHeader = array_flip($this->headerToProp);
     }
 
-    protected abstract function whichTable(): string;
+    public abstract function whichTable(): string;
 
-    protected abstract function mapToProp(): array;
+    public abstract function mapToProp(): array;
 
     // protected function normalizePropName(string $propName): string
     // {
@@ -38,15 +38,15 @@ abstract class BaseRepository
     {
         return $this->headers;
     }
-    protected function getIdColName(): string
+    public function getIdColName(): string
     {
         return $this->idColName;
     }
-    protected function getHeaderToProp(): array
+    public function getHeaderToProp(): array
     {
         return $this->headerToProp;
     }
-    protected function getPropToHeader(): array
+    public function getPropToHeader(): array
     {
         return $this->propToHeader;
     }
@@ -80,7 +80,7 @@ abstract class BaseRepository
         }
     }
 
-    protected function objToArray(): array
+    public function objToArray(): array
     {
         $reflection = new ReflectionClass($this->obj);
         $assocArr = [];
@@ -109,7 +109,7 @@ abstract class BaseRepository
         return $assocArr;
     }
 
-    protected function arrayToObj(array $row, ?object $oldObj = null): object
+    public function arrayToObj(array $row, ?object $oldObj = null): object
     {
         $reflection = new ReflectionClass($this->obj);
         if ($oldObj) $this->obj = $oldObj;

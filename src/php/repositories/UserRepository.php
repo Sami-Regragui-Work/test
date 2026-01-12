@@ -5,12 +5,12 @@ require __DIR__ . "/BaseRepository.php";
 abstract class UserRepository extends BaseRepository
 {
     // private object $obj;
-    protected function whichTable(): string
+    public function whichTable(): string
     {
         return 'users';
     }
 
-    protected function mapToProp(): array
+    public function mapToProp(): array
     {
         return [
             'username' => 'user',

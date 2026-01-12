@@ -4,16 +4,17 @@ require __DIR__ . "/UserRepository.php";
 
 class DoctorRepository extends UserRepository
 {
-    protected function whichTable(): string
+    public function whichTable(): string
     {
         return 'doctors';
     }
 
-    protected function mapToProp(): array
+    public function mapToProp(): array
     {
         return [
             'user_id' => 'id',
-            'specialization' => 'spec'
+            'specialization' => 'spec',
+            'department_id' => 'fk'
         ];
     }
 }

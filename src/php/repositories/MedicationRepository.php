@@ -4,12 +4,12 @@ require __DIR__ . "/BaseRepository.php";
 
 class MedicationRepository extends BaseRepository
 {
-    protected function whichTable(): string
+    public function whichTable(): string
     {
         return 'medications';
     }
 
-    protected function mapToProp(): array
+    public function mapToProp(): array
     {
         return [
             'name' => 'name',
