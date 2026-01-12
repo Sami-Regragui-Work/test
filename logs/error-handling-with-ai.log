@@ -1,0 +1,52 @@
+[12-Jan-2026 05:15:41 UTC] PHP Fatal error:  Uncaught ErrorException: session_start(): open(/var/lib/php/sessions/sess_7375d2fff9b884731c9573186ca1dda2, O_RDWR) failed: Permission denied (13) in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php:4
+Stack trace:
+#0 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:28}()
+#1 /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php(4): session_start()
+#2 {main}
+  thrown in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php on line 4
+[12-Jan-2026 05:15:41 UTC] PHP Fatal error:  Uncaught ErrorException: http_response_code(): Calling http_response_code() after header('HTTP/...') has no effect in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:16
+Stack trace:
+#0 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:28}()
+#1 /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php(16): http_response_code()
+#2 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:13}()
+#3 {main}
+  thrown in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php on line 16
+[12-Jan-2026 05:16:17 UTC] PHP Fatal error:  Uncaught ErrorException: session_start(): open(/var/lib/php/sessions/sess_7375d2fff9b884731c9573186ca1dda2, O_RDWR) failed: Permission denied (13) in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php:4
+Stack trace:
+#0 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:28}()
+#1 /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php(4): session_start()
+#2 {main}
+  thrown in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php on line 4
+[12-Jan-2026 05:16:17 UTC] PHP Fatal error:  Uncaught ErrorException: http_response_code(): Calling http_response_code() after header('HTTP/...') has no effect in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:16
+Stack trace:
+#0 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:28}()
+#1 /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php(16): http_response_code()
+#2 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:13}()
+#3 {main}
+  thrown in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php on line 16
+[12-Jan-2026 05:17:28 UTC] PHP Fatal error:  Uncaught ErrorException: session_start(): open(/var/lib/php/sessions/sess_7375d2fff9b884731c9573186ca1dda2, O_RDWR) failed: Permission denied (13) in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php:4
+Stack trace:
+#0 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:28}()
+#1 /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php(4): session_start()
+#2 {main}
+  thrown in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php on line 4
+[12-Jan-2026 05:17:28 UTC] PHP Fatal error:  Uncaught ErrorException: http_response_code(): Calling http_response_code() after header('HTTP/...') has no effect in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:16
+Stack trace:
+#0 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:28}()
+#1 /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php(16): http_response_code()
+#2 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:13}()
+#3 {main}
+  thrown in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php on line 16
+[12-Jan-2026 05:18:11 UTC] PHP Fatal error:  Uncaught ErrorException: session_start(): open(/var/lib/php/sessions/sess_7375d2fff9b884731c9573186ca1dda2, O_RDWR) failed: Permission denied (13) in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php:4
+Stack trace:
+#0 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:28}()
+#1 /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php(4): session_start()
+#2 {main}
+  thrown in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/section/dashboard.php on line 4
+[12-Jan-2026 05:18:11 UTC] PHP Fatal error:  Uncaught ErrorException: http_response_code(): Calling http_response_code() after header('HTTP/...') has no effect in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:16
+Stack trace:
+#0 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:28}()
+#1 /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php(16): http_response_code()
+#2 [internal function]: {closure:/home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php:13}()
+#3 {main}
+  thrown in /home/frogsam/D/YouCode/Sprint_4/Brief_2/src/php/error-handling-with-ai.php on line 16

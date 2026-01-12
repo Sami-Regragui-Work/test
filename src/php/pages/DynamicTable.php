@@ -1,7 +1,22 @@
 <?php
+require_once __DIR__ . '/../../php/error-handling-with-ai.php';
 require_once __DIR__ . '/../config/DataBase.php';
-require_once __DIR__ . '/../repositories/*.php';
-require_once __DIR__ . '/../model/*.php';
+$repoFiles = glob(__DIR__ . '/../repositories/*.php');
+foreach ($repoFiles as $file) {
+    $className = basename($file, '.php');
+    if ($className === 'BaseRepository' || $className === 'UserRepository') {
+        continue;
+    }
+    require_once $file;
+}
+$modelFiles = glob(__DIR__ . '/../model/*.php');
+foreach ($modelFiles as $file) {
+    $className = basename($file, '.php');
+    if ($className === 'User') {
+        continue;
+    }
+    require_once $file;
+}
 
 class DynamicTable
 {
@@ -10,7 +25,7 @@ class DynamicTable
     private BaseRepository $repository;
     private array $headers = [];
     private array $data = [];
-    private int $totalRecords = 0;
+    public int $totalRecords = 0;
 
     private array $tableMapping = [
         'users' => ['User', 'UserRepository'],
